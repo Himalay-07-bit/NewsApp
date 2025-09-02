@@ -1,0 +1,37 @@
+*::-webkit-scrollbar{
+    display: none;
+}
+.background {
+    background: linear-gradient(to right, #536976, #292e49);
+}
+
+.card-title {
+    font-size: 1rem;
+    height: 110px;
+}
+
+.source {
+    border-bottom: 5px solid #536976;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.source p {
+    font-size: 0.7rem;
+
+}
+
+.card-text {
+    font-size: 0.8rem;
+    height: 200px;
+}
+
+.card {
+    border: 1px solid #536976;
+}
+
+img {
+    border: 1px solid #536976;
+
+}
