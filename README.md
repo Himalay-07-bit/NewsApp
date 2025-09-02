@@ -1,12 +1,88 @@
-# React + Vite
+📖 NewsApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based News Application that fetches and displays real-time news articles using the NewsAPI
+.
+It supports infinite scrolling, category-based filtering, and multi-language support with a clean Bootstrap-based UI.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌍 Browse latest news from multiple categories (Politics, Education, Crime, Science, Technology, Sports, etc.)
 
-## Expanding the ESLint configuration
+🔎 Search news articles by keyword
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📜 Infinite scrolling for seamless browsing
+
+🌐 Multi-language support (English, Hindi, etc.)
+
+📅 News sorted by latest publication date
+
+📱 Responsive UI built with Bootstrap 5
+
+🛠️ Tech Stack
+
+React 18 (with functional components & hooks)
+
+React Router v6 (for routing & query params)
+
+Bootstrap 5 (for styling)
+
+NewsAPI (for fetching articles)
+
+react-infinite-scroll-component (for infinite scroll pagination)
+
+📂 Project Structure
+src/
+│── App.jsx             # Main app with routes
+│── main.jsx            # React entry point
+│── component/
+│   ├── Navbar.jsx      # Navigation bar
+│   ├── Footer.jsx      # Footer section
+│   └── NewsItem.jsx    # Single news card component
+│── pages/
+│   └── HomePage.jsx    # Displays news with infinite scroll
+│── css/
+│   └── style.css       # Custom styles
+
+⚙️ Installation & Setup
+
+Clone the repository
+
+git clone https://github.com/your-username/newsapp.git
+cd newsapp
+
+
+Install dependencies
+
+npm install
+
+
+Add your NewsAPI key
+Replace YOUR_API_KEY in HomePage.jsx with your own API key from NewsAPI
+.
+
+const apiKey = "YOUR_API_KEY";
+
+
+Run the development server
+
+npm run dev
+
+
+Open in browser
+Visit 👉 http://localhost:5173
+
+📸 Screenshots
+
+(Optional – Add screenshots of your app UI here)
+
+🙌 Acknowledgements
+
+NewsAPI
+ for free news data
+
+React
+ and Vite
+ for fast development
+
+Bootstrap 5
+ for UI components
