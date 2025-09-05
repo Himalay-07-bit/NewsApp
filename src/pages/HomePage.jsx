@@ -12,7 +12,7 @@ export default function HomePage() {
 
 
     async function getApiData() {
-        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=1`);
+        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${page}`);
         response = await response.json();
         if (response.status === "ok") {
             setArticles(response.articles);
