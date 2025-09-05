@@ -12,23 +12,25 @@ export default function HomePage() {
 
 
     async function getApiData() {
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q")??"All"}&language=${searchParams.get("language")??"hi"}&from=2025-08-05&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
-        response = await response.json()
+        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=1`);
+        response = await response.json();
         if (response.status === "ok") {
-            setArticles(response.articles)
-            setTotalResults(response.totalResults)
+            setArticles(response.articles);
+            setTotalResults(response.totalResults);
         }
     }
 
     let fetchData = async () => {
-        setPage(page + 1)
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q")??"All"}&language=${searchParams.get("language")??"hi"}&from=2025-08-05&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
-        response = await response.json()
-        if (response.status === "ok") {
-            setArticles(articles.concat(response.articles))
+        let nextPage = page + 1;
+        setPage(nextPage);
 
+        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${nextPage}`);
+        response = await response.json();
+        if (response.status === "ok") {
+            setArticles(articles.concat(response.articles));
         }
-    }
+    };
+
 
     useEffect(() => {
         getApiData()
@@ -42,8 +44,8 @@ export default function HomePage() {
                 hasMore={articles.length < totalResults}
                 loader={<div className="my-5 text-center">
                     <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
                 </div>}
             >
                 <div className="row">
