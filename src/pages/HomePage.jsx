@@ -12,7 +12,7 @@ export default function HomePage() {
 
 
     async function getApiData() {
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "en"}&pageSize=24&page=1&from=2025-08-01&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
+        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q")??"All"}&language=${searchParams.get("language")??"hi"}&from=2025-08-05&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
         response = await response.json()
         if (response.status === "ok") {
             setArticles(response.articles)
@@ -22,7 +22,7 @@ export default function HomePage() {
 
     let fetchData = async () => {
         setPage(page + 1)
-        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "en"}&pageSize=24&page=${page}&from=2025-08-01&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
+        let response = await fetch(`https://newsapi.org/v2/everything?q=${searchParams.get("q")??"All"}&language=${searchParams.get("language")??"hi"}&from=2025-08-05&sortBy=publishedAt&apiKey=1b4d039927164c8daf172ea864681873`)
         response = await response.json()
         if (response.status === "ok") {
             setArticles(articles.concat(response.articles))
@@ -63,3 +63,4 @@ export default function HomePage() {
         </div>
     )
 }
+
