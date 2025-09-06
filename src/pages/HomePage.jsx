@@ -12,7 +12,7 @@ export default function HomePage() {
 
 
     async function getApiData() {
-        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${page}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`);
+        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${page}`);
         response = await response.json();
         if (response.status === "ok") {
             setArticles(response.articles);
@@ -24,7 +24,7 @@ export default function HomePage() {
         let nextPage = page + 1;
         setPage(nextPage);
 
-        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${nextPage}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`);
+        let response = await fetch(`/api/news?q=${searchParams.get("q") ?? "All"}&language=${searchParams.get("language") ?? "hi"}&page=${nextPage}`);
         response = await response.json();
         if (response.status === "ok") {
             setArticles(articles.concat(response.articles));
